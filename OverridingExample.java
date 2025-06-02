@@ -1,29 +1,31 @@
-package abc;
+package xyz;
+
 class animal{
 	void sound() {
-		System.out.println("animal makes a sound");
+		System.out.println("Animals make sound");
 	}
 }
-class dog extends animal{
+class Dog extends animal{
 	void sound() {
-		System.out.println("bow bow");
+		System.out.println("Dogs barks");
 	}
 }
 class cat extends animal{
 	void sound() {
-		System.out.println("meow meow");
+		System.out.println("cat meows");
 	}
 }
 public class OverridingExample {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		animal a1=new animal();
-		animal a2=new dog();
+		animal a2=new Dog();
 		animal a3=new cat();
 		a1.sound();
 		a2.sound();
 		a3.sound();
+		
+
 	}
 
 }
