@@ -1,35 +1,29 @@
-package javproject;
+package xyz;
+
+import java.util.Scanner;
 
 public class BinarySearch {
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] == target)
+                return mid;
+            else if (arr[mid] < target)
+                left = mid + 1;
+            else
+                right = mid - 1;
+        }
+        return -1;  // Element not found
+    }
 
-	public static void main(String[] args) {
-		int[] numbers = {2,4,5,7,8,9};
-		
-		int target = 12;
-		int left = 0;
-		int right = numbers.length-1;
-		
-		boolean found = false;
-		
-		while(left<=right) {
-			int mid = (left+right)/2;
-			
-			if(numbers[mid]==target) {
-				System.out.println("Found"+" "+" "+target+"at index"+ " "+mid);
-				found=true;
-				break;
-			}else if(target<numbers[mid]) {
-				right=mid-1;
-			}else {
-				left=mid+1;
-			}
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 7, 9, 11};
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.print("Enter element to search: ");
+			int target = scanner.nextInt();
+			int index = binarySearch(arr, target);
+			System.out.println(index != -1 ? "Element found at index " + index : "Element not found.");
 		}
-		if(!found) {
-			System.out.println("Number not found");
-		}
-		
-		
-		
-	}
-
+    }
 }
